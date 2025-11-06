@@ -1,0 +1,31 @@
+{% extends 'notes/base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: auto;
+  }
+  input {
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button {
+    width: 100%;
+  }
+</style>
+
+<h2 style="text-align:center;">Вход</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Войти</button>
+</form>
+<p style="text-align:center; margin-top:1rem;">
+  Нет аккаунта? <a href="{% url 'signup' %}" style="color:#273c75;">Регистрация</a>
+</p>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'notes/base.html' %}
+{% block title %}Удалить: {{ note.title }}{% endblock %}
+{% block content %}
+<style>
+  .delete-box {
+    text-align: center;
+  }
+  .delete-box button {
+    background-color: #c0392b;
+    margin-right: 1rem;
+  }
+  .delete-box a {
+    color: #273c75;
+  }
+</style>
+
+<div class="delete-box">
+  <h2>Удалить заметку: "{{ note.title }}"?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    <a href="{% url 'note_detail' note.pk %}">Отмена</a>
+  </form>
+</div>
+{% endblock %}
