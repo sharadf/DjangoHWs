@@ -1,5 +1,5 @@
 from datetime import datetime
-from extensions import db
+from flask_rest_api.extensions import db
 
 
 class Chef(db.Model):

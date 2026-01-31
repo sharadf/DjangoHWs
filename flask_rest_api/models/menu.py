@@ -1,4 +1,4 @@
-from extensions import db
+from flask_rest_api.extensions import db
 
 
 class Menu(db.Model):
