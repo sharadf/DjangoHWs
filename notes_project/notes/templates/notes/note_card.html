@@ -1,0 +1,25 @@
+{% load highlight %}
+{% load readtime %}
+<div class="note-card">
+  <h2>
+    <a href="{% url 'note_detail' note.pk %}">{{ note.title|default:"(без названия)" }}</a>
+  </h2>
+  <p>{{ note.body|truncatechars:200 }}</p>
+  <p><small>Создано: {{ note.created_at|date:"d.m.Y H:i" }}</small></p>
+  <p>⏱ {{ note.body|readtime }} &nbsp;|&nbsp;
+    Теги:
+    {% for tag in note.tags.all %}
+      <a href="{% url 'notes_by_tag' tag.slug %}" style="color:#40739e;">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% empty %}
+      <i>Нет тегов</i>
+    {% endfor %}
+  </p>
+
+  {% if user.is_authenticated %}
+  <div style="margin-top:10px;">
+    <a href="{% url 'note_edit' note.pk %}" style="color:#273c75;">Редактировать</a> |
+    <a href="{% url 'note_delete' note.pk %}" style="color:#c0392b;">Удалить</a> |
+    <a href="{% url 'note_detail' note.pk %}" style="color:#16a085;">Открыть</a>
+  </div>
+  {% endif %}
+</div>

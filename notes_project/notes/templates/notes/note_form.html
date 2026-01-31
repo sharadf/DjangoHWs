@@ -1,0 +1,33 @@
+{% extends 'notes/base.html' %}
+{% block title %}{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} заметку{% endblock %}
+{% block content %}
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  input, textarea {
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+  }
+  button {
+    align-self: flex-start;
+  }
+  a {
+    color: #273c75;
+    text-decoration: none;
+  }
+</style>
+
+<h2>{% if form.instance.pk %}Редактировать{% else %}Создать{% endif %} заметку</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Сохранить</button>
+  <a href="{% url 'note_list' %}">Отмена</a>
+</form>
+{% endblock %}
