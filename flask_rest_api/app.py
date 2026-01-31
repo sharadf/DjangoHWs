@@ -1,9 +1,9 @@
 from flask import Flask
 from extensions import db, api
 from config import Config
-from routes.chef import chef_ns
+from flask_rest_api.routes.chef import chef_ns
 
-from routes.menu import menu_ns
+from flask_rest_api.routes.menu import menu_ns
 
 
 def create_app():

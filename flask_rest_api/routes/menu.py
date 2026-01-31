@@ -1,8 +1,8 @@
-from flask_restx import Namespace, fields, Resource, api
+from flask_restx import Namespace, fields, Resource
 
-from extensions import db
-from models.chef import Chef
-from models.menu import Menu
+from flask_rest_api.extensions import db
+from flask_rest_api.models.chef import Chef
+from flask_rest_api.models.menu import Menu
 
 menu_ns = Namespace('menus', description='Menu operations')
 

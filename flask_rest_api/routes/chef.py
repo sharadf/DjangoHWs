@@ -1,9 +1,7 @@
-from flask import request
-
 from flask_restx import fields, Namespace, Resource
 
-from extensions import db
-from models.chef import Chef
+from flask_rest_api.extensions import db
+from flask_rest_api.models.chef import Chef
 
 chef_ns = Namespace('chefs', description='Chefs operations')
 
