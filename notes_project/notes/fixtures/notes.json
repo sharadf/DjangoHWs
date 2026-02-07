@@ -1,0 +1,27 @@
+[
+  {
+    "model": "notes.tag",
+    "pk": 1,
+    "fields": {"name": "python", "slug": "python"}
+  },
+  {
+    "model": "notes.note",
+    "pk": 1,
+    "fields": {
+      "title": "Первая заметка",
+      "body": "Текст...",
+      "created_at": "2025-10-29T12:00:00Z",
+      "updated_at": "2025-10-29T12:00:00Z"
+    }
+  },
+  {
+    "model": "notes.note",
+    "pk": 2,
+    "fields": {
+      "title": "Вторая заметка",
+      "body": "Ещё текст...",
+      "created_at": "2025-10-29T12:10:00Z",
+      "updated_at": "2025-10-29T12:10:00Z"
+    }
+  }
+]

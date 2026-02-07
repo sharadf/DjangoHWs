@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -24,3 +25,10 @@ dist-ssr
 *.sw?
 
 .env
+=======
+__pycache__/
+*.pyc
+.env
+venv/
+.idea/
+>>>>>>> c4c866a6621e8572551a45f38aee3e8e896ead6d

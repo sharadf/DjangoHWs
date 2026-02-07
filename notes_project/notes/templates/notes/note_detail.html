@@ -1,0 +1,38 @@
+{% extends 'notes/base.html' %}
+{% block title %}{{ note.title }}{% endblock %}
+{% block content %}
+<style>
+  .note-detail {
+    line-height: 1.6;
+  }
+  .note-detail h2 {
+    color: #273c75;
+  }
+  .note-detail p {
+    margin-bottom: 1rem;
+  }
+</style>
+
+<div class="note-detail">
+  <h2>{{ note.title }}</h2>
+  <p>{{ note.body|linebreaks }}</p>
+  <p><small>Создано: {{ note.created_at|date:"d.m.Y H:i" }}</small></p>
+  <p>
+    Теги:
+    {% for tag in note.tags.all %}
+      <a href="{% url 'notes_by_tag' tag.slug %}" style="color:#40739e;">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% empty %}
+      <i>Нет тегов</i>
+    {% endfor %}
+  </p>
+  {% load readtime %}
+  <p class="text-muted small">⏱ {{ note.body|readtime }}</p>
+
+  <p>
+    <a href="{% url 'note_list' %}" style="color:#273c75;">← Назад</a>
+    {% if user.is_authenticated %}
+      | <a href="{% url 'note_edit' note.pk %}" style="color:#16a085;">Редактировать</a>
+    {% endif %}
+  </p>
+</div>
+{% endblock %}
